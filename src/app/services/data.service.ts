@@ -145,7 +145,7 @@ export class DataService {
 
   connect(): void {
     this.connection = webSocket({
-      url: 'ws://localhost:8080/chat/' + this.username,
+      url: 'ws://vm137.htl-leonding.ac.at:8080/chat/' + this.username,
       deserializer: msg => msg.data
     });
       this.connection.subscribe((value) =>{

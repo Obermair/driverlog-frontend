@@ -14,7 +14,7 @@ import { Settlement } from '../model/settlement';
 export class HttpService {
 
   http: HttpClient;
-  api: String = "http://localhost:8080";
+  api: String = "https://vm137.htl-leonding.ac.at";
 
   constructor(http: HttpClient) { 
     this.http = http;
