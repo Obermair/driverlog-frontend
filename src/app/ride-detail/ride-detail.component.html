@@ -1,0 +1,15 @@
+ 
+<nb-card status="success">
+    <nb-card-header> 
+        <nb-icon style="cursor: pointer;" (click)="openRideUpdateWindow(ride)" class="edit-todo"  icon="edit-outline"></nb-icon> 
+        {{ride.date | date: 'dd.MM.yyyy'}}  
+        <nb-icon style="cursor: pointer;" (click)="deleteRide(ride.id)" class="todo-ressource"  icon="trash-2-outline"></nb-icon> 
+    </nb-card-header>
+    <nb-card-body>
+        Gefahrene Kilometer: {{ride.km}} km
+        <br>
+        Fahrer: {{ride.driver.firstname}} {{ride.driver.lastname}}
+        <br>
+        Fahrtstrecke: <b>{{ride.description}}</b>
+    </nb-card-body>
+</nb-card>

@@ -1,0 +1,9 @@
+.todo-ressource{
+    float: right;
+}
+.edit-todo{
+    float: left;
+}
+.ressource-list{
+    list-style: none;
+}

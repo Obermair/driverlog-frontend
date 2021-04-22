@@ -1,0 +1,13 @@
+<nb-select fullWidth class="mt-3" placeholder="Fahrer auswählen" [(selected)]="data.currentUpdateFuel.driver">
+    <nb-option *ngFor="let driver of data.drivers; index as i" [value]="driver">
+        {{driver.firstname}} {{driver.lastname}}
+    </nb-option>
+</nb-select>
+
+<input type="text" [(ngModel)]="data.currentUpdateFuel.price" nbInput placeholder="Preis" fullWidth  status="basic" class="mt-3">
+<input type="text" [(ngModel)]="data.currentUpdateFuel.date"  [nbDatepicker]="dateTimePicker" nbInput placeholder="Datum" fullWidth  status="basic" class="mt-3">
+<nb-datepicker #dateTimePicker></nb-datepicker>
+
+<button (click)="updateFuel()" class="mt-4" nbButton>
+    <nb-action class="mr-2" icon="checkmark-square-outline"></nb-action>
+    Tankung aktualisieren</button>

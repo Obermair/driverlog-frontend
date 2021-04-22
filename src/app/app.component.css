@@ -1,0 +1,40 @@
+nb-layout-column{
+    text-align: center;
+}
+nb-layout-header{
+    text-align: center;
+}
+.logo-container {
+    width: 50px;
+}
+input{
+    margin: 14px 18px 2px 18px;  
+}
+.todos{
+    margin: auto;
+}
+.headline{
+    margin: auto;
+}
+.trash-person{
+   float: right;
+   margin-top: -33px;
+   margin-right: -20px;
+}
+.edit-person{
+    float: right;
+    margin-top: -33px;
+    margin-left: 3px;
+ }
+.trash-ressource{
+    float: right;
+    margin-left: 2px;
+}
+.edit-ressource{
+    float: right;
+}
+li{
+    list-style: none;
+}
+ 
+ 

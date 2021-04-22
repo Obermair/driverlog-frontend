@@ -1,0 +1,10 @@
+
+<p>Gefahrene Kilometer: <b>{{data.currentUpdateDriver.km}} km</b></p>
+<p>getankter Preis: <b>{{data.currentUpdateDriver.fuelCredits |currency:'EUR':true}}</b></p>
+<p>Werkstattbesuche: <b>{{data.currentUpdateDriver.repairCredits |currency:'EUR':true}}</b></p>
+
+<input type="text" [(ngModel)]="data.currentUpdateDriver.firstname" nbInput placeholder="Vorname" fullWidth  status="basic" class="mt-3">
+<input type="text" [(ngModel)]="data.currentUpdateDriver.lastname" nbInput placeholder="Nachname" fullWidth  status="basic" class="mt-3">
+<button (click)="updateDriver()" class="mt-4" nbButton>
+    <nb-action class="mr-2" icon="checkmark-square-outline"></nb-action>
+    Fahrer aktualisieren</button>

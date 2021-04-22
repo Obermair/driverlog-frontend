@@ -1,0 +1,68 @@
+
+
+<div class="d-flex flex-row justify-content-around" style="width: 75vw;">
+   <div>
+        Letzte Abrechung am: <b>{{data.lastSettlementRecord.date | date: 'dd.MM.yyyy' }}</b>
+        <br><br>
+        Letzter Kilometerstand: <b>{{data.lastSettlementRecord.new_mileage}} km</b>
+        <br><br>
+        Gefahrene Kilometer: <b>{{mileage - data.lastSettlementRecord.new_mileage}} </b> 
+        <br><br>
+    </div>
+    <div>
+        <p>Kilometerpreis: </p>
+        <nb-form-field style="margin-top: -20px;">
+            <nb-icon nbPrefix class="mt-3" icon="pricetags-outline" pack="eva"></nb-icon>
+            <input type="text" [(ngModel)]="km_price" nbInput placeholder="Kilometerpreis" status="basic" class="mt-3">
+        </nb-form-field>
+        <br>
+        <p>Aktueller Kilometerstand: </p> 
+        <nb-form-field style="margin-top: -20px;">
+            <nb-icon nbPrefix class="mt-3" icon="pricetags-outline" pack="eva"></nb-icon>
+            <input type="text" [(ngModel)]="mileage" nbInput placeholder="Kilometerpreis" status="basic" class="mt-3">
+        </nb-form-field>
+    </div>
+</div>
+
+    <nb-accordion class="mt-5">
+        <nb-accordion-item  *ngFor="let driver of data.drivers; index as i" style="background-color: aliceblue;">
+            <nb-accordion-item-header *ngIf="driver.leader">
+              {{driver.firstname}} {{driver.lastname}} 
+            </nb-accordion-item-header>
+            <nb-accordion-item-body *ngIf="driver.leader">
+              <p>Gefahrene Kilometer: <b>{{getLeaderPrice()}} km</b></p>
+              <p>getankter Preis: <b>{{driver.fuelCredits |currency:'EUR':true}}</b></p>
+              <p>Werkstattbesuche: <b>{{driver.repairCredits |currency:'EUR':true}}</b></p>
+
+              <hr>
+
+              zu zahlen: {{getLeaderPrice()}} * {{km_price}} - ({{driver.fuelCredits}} + {{driver.repairCredits}}) = <b>{{(getLeaderPrice() * km_price) - (driver.fuelCredits + driver.repairCredits) |currency:'EUR':true}}</b>
+            
+            </nb-accordion-item-body>
+        </nb-accordion-item>
+
+        <nb-accordion-item *ngFor="let driver of data.drivers; index as i">
+          <nb-accordion-item-header *ngIf="!driver.leader">
+            {{driver.firstname}} {{driver.lastname}} 
+          </nb-accordion-item-header>
+          <nb-accordion-item-body *ngIf="!driver.leader">
+            <p>Gefahrene Kilometer: <b>{{driver.km}} km</b></p>
+            <p>getankter Preis: <b>{{driver.fuelCredits |currency:'EUR':true}}</b></p>
+            <p>Werkstattbesuche: <b>{{driver.repairCredits |currency:'EUR':true}}</b></p>
+            
+            <hr>
+
+            zu zahlen: {{driver.km}} * {{km_price}} - ({{driver.fuelCredits}} + {{driver.repairCredits}}) = <b>{{(driver.km * km_price) - (driver.fuelCredits + driver.repairCredits) |currency:'EUR':true}}</b>
+          </nb-accordion-item-body>
+
+        </nb-accordion-item>
+    
+      </nb-accordion>
+
+
+
+
+    <button (click)="startNewSettlement()" class="mt-4" nbButton status="danger">
+    <nb-action class="mr-2" icon="trash-2-outline"></nb-action>
+        Neue Abrechnung beginnen</button>
+
