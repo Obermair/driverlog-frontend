@@ -19,9 +19,10 @@ export class UpdateRideFormComponent implements OnInit {
     this.data.currentUpdateRide.date = formatDate(this.data.currentUpdateRide.date, 'yyyy-MM-dd HH:mm', this.locale)
 
     this.httpService.updateRide(this.data.currentUpdateRide).subscribe(() => {
-      this.data.findRide();
       this.data.showToast('top-right', 'success', 'Erfolgreich bearbeitet');
       this.data.send();
+      this.data.findDrivers();
+      this.data.findRide();
     });
   }
 

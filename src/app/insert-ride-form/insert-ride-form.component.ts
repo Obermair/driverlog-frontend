@@ -31,6 +31,8 @@ export class InsertRideFormComponent implements OnInit {
         description: ''
       }
       this.data.send();
+      this.data.findDrivers();
+      this.data.findRide();
     })
   }
 

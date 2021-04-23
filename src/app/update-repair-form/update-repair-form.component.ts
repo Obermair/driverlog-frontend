@@ -24,6 +24,8 @@ export class UpdateRepairFormComponent implements OnInit {
       this.data.findRepairs();
       this.data.showToast('top-right', 'success', 'Erfolgreich bearbeitet');
       this.data.send();
+      this.data.findDrivers();
+      this.data.findRide();
     });
   }
 }

@@ -29,6 +29,8 @@ export class InsertFuelFormComponent implements OnInit {
         price: null
       }
       this.data.send();
+      this.data.findDrivers();
+      this.data.findRide();
     })
   }
 

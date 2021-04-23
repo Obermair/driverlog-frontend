@@ -28,11 +28,11 @@ import { SettlementComponent } from './settlement/settlement.component';
     trigger('slideInOut', [
       state('in', style({
         width: '280px',
-        opacity: 1
+        display: 'block'
       })),
       state('out', style({
         width: '0px',
-        opacity:0
+        display: 'none'
       })),
       transition('in => out', animate('400ms ease-in-out')),
       transition('out => in', animate('400ms ease-in-out'))

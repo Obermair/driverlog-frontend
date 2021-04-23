@@ -22,6 +22,8 @@ export class UpdateFuelFormComponent implements OnInit {
       this.data.findFuels();
       this.data.showToast('top-right', 'success', 'Erfolgreich bearbeitet');
       this.data.send();
+      this.data.findDrivers();
+      this.data.findRide();
     });
   }
 
